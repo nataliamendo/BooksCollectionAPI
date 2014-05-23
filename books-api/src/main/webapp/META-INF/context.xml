@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<!-- maxActive = número de conexiones activas, maxI -->
+	<Resource name="jdbc/booksdb" auth="Container" type="javax.sql.DataSource"
+		maxActive="10" maxIdle="5" username="books" password="books"
+		driverClassName="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/booksdb?autoReconnect=true" />
+
+	<Realm className="org.apache.catalina.realm.DataSourceRealm"
+		dataSourceName="jdbc/booksdb" localDataSource="true" digest="MD5"
+		userTable="users" userNameCol="username" userCredCol="userpass"
+		userRoleTable="user_roles" roleNameCol="rolename" />
+</Context>
